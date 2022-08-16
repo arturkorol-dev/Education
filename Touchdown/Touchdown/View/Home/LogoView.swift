@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LogoView: View {
+    //MARK: - Body
     var body: some View {
         HStack(spacing: 4) {
             Text("Touch")
@@ -26,6 +27,7 @@ struct LogoView: View {
     }
 }
 
+//MARK: - Preview
 struct LogoView_Previews: PreviewProvider {
     static var previews: some View {
         LogoView()
