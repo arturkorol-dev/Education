@@ -28,6 +28,10 @@ struct ContentView: View {
                             .padding(.vertical, 20)
                             .frame(height: UIScreen.main.bounds.width / 1.5)
                         
+                        CategoryGridView()
+                        
+                        TitleView(title: "Helmets")
+                        
                         FooterView()
                             .padding(.horizontal)
                         

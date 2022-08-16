@@ -9,7 +9,7 @@ import SwiftUI
 
 //Data
 let players: [Player] = Bundle.main.decode("player")
-let category: [Category] = Bundle.main.decode("category")
+let categories: [Category] = Bundle.main.decode("category")
 
 //Constraint
 let columnSpacing: CGFloat = 10
