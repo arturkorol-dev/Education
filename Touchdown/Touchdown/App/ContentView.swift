@@ -9,39 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     //MARK: - Properties
-
+    
     
     //MARK: - Body
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                NavigationBarView()
-                    .padding(.horizontal, 15)
-                    .padding(.bottom)
-                    .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
-                    .background(.white)
-                    .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 5)
-                
+                navigationBar
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
                         FeaturedTabView()
                             .padding(.vertical, 20)
                             .frame(height: UIScreen.main.bounds.width / 1.5)
-                        
                         CategoryGridView()
-                        
-                        TitleView(title: "Helmets")
-                        
-                        LazyVGrid(columns: gridLayout, spacing: 15) {
-                            ForEach(products) { product in
-                                ProductItemView(product: product)
-                            }
-                        }
-                        .padding(15)
-                        
+                        helmets
+                        brands
                         FooterView()
                             .padding(.horizontal)
-                        
                     }
                 }
             }
@@ -49,8 +33,38 @@ struct ContentView: View {
         }
         .ignoresSafeArea(.all, edges: .top)
     }
+    
+    //MARK: - View
+    private var navigationBar: some View {
+        NavigationBarView()
+            .padding(.horizontal, 15)
+            .padding(.bottom)
+            .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+            .background(.white)
+            .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 5)
+    }
+    
+    private var helmets: some View {
+        VStack {
+            TitleView(title: "Helmets")
+            
+            LazyVGrid(columns: gridLayout, spacing: 15) {
+                ForEach(products) { product in
+                    ProductItemView(product: product)
+                }
+            }
+            .padding(15)
+        }
+    }
+    
+    private var brands: some  View {
+        VStack {
+            TitleView(title: "Brands")
+            BrandGridView()
+        }
+    }
 }
-
+//MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

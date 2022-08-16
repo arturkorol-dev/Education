@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CategoryItemView: View {
     //MARK: - Properties
-    
     let category: Category
     
     //MARK: - Body
