@@ -12,6 +12,8 @@
 		052C48AC28ABCB49004BDB35 /* CategoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C48AB28ABCB49004BDB35 /* CategoryGridView.swift */; };
 		052C48AE28ABDDEF004BDB35 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C48AD28ABDDEF004BDB35 /* SectionView.swift */; };
 		052C48B028ABEB3D004BDB35 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C48AF28ABEB3D004BDB35 /* TitleView.swift */; };
+		052C48B228ABECBE004BDB35 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C48B128ABECBE004BDB35 /* ProductModel.swift */; };
+		052C48B428ABEE0B004BDB35 /* ProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052C48B328ABEE0B004BDB35 /* ProductItemView.swift */; };
 		0576572128A9060300B533E5 /* TouchdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0576572028A9060300B533E5 /* TouchdownApp.swift */; };
 		0576572328A9060300B533E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0576572228A9060300B533E5 /* ContentView.swift */; };
 		0576572528A9060600B533E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0576572428A9060600B533E5 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		052C48AB28ABCB49004BDB35 /* CategoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGridView.swift; sourceTree = "<group>"; };
 		052C48AD28ABDDEF004BDB35 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		052C48AF28ABEB3D004BDB35 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		052C48B128ABECBE004BDB35 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		052C48B328ABEE0B004BDB35 /* ProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemView.swift; sourceTree = "<group>"; };
 		0576571D28A9060300B533E5 /* Touchdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touchdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0576572028A9060300B533E5 /* TouchdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchdownApp.swift; sourceTree = "<group>"; };
 		0576572228A9060300B533E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				0576575028A9613900B533E5 /* PlayerModel.swift */,
 				052C48A728ABB851004BDB35 /* CategoryModel.swift */,
+				052C48B128ABECBE004BDB35 /* ProductModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				052C48AB28ABCB49004BDB35 /* CategoryGridView.swift */,
 				052C48AD28ABDDEF004BDB35 /* SectionView.swift */,
 				052C48AF28ABEB3D004BDB35 /* TitleView.swift */,
+				052C48B328ABEE0B004BDB35 /* ProductItemView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -272,11 +278,13 @@
 				052C48AC28ABCB49004BDB35 /* CategoryGridView.swift in Sources */,
 				0576575328A961C400B533E5 /* CodableBundleExtension.swift in Sources */,
 				052C48AE28ABDDEF004BDB35 /* SectionView.swift in Sources */,
+				052C48B228ABECBE004BDB35 /* ProductModel.swift in Sources */,
 				052C48A828ABB851004BDB35 /* CategoryModel.swift in Sources */,
 				0576574D28A947E200B533E5 /* LogoView.swift in Sources */,
 				0576575528A9657800B533E5 /* Helper.swift in Sources */,
 				0576574928A91D6600B533E5 /* FooterView.swift in Sources */,
 				052C48B028ABEB3D004BDB35 /* TitleView.swift in Sources */,
+				052C48B428ABEE0B004BDB35 /* ProductItemView.swift in Sources */,
 				0576572328A9060300B533E5 /* ContentView.swift in Sources */,
 				0576574B28A9419500B533E5 /* NavigationBarView.swift in Sources */,
 				0576575928A9684600B533E5 /* FeaturedTabView.swift in Sources */,
