@@ -10,4 +10,5 @@ import SwiftUI
 
 extension Color {
     static let mainBackground = Color("ColorBackground")
+    static let lightGray = Color(UIColor.lightGray)
 }
