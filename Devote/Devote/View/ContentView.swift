@@ -58,61 +58,76 @@ struct ContentView: View {
     //MARK: - Body
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(spacing: 16) {
-                    TextField("New task", text: $task)
-                        .padding()
-                        .background(
-                            Color(UIColor.systemGray6)
-                        )
-                        .cornerRadius(10)
-                    
-                    Button {
-                        addItem()
-                        self.task.removeAll()
-                        self.hideKeyboard()
-                    } label: {
-                        Text("Save")
-                            .font(.headline)
+            ZStack {
+                VStack {
+                    VStack(spacing: 16) {
+                        TextField("New task", text: $task)
                             .padding()
-                            .frame(maxWidth: .infinity)
                             .background(
-                                isButtonDisabled ? Color.gray : Color.pink
+                                Color(UIColor.systemGray6)
                             )
-                            .foregroundColor(.white)
                             .cornerRadius(10)
-                    }
-                    .disabled(isButtonDisabled)
-                }
-                .padding()
-                
-                
-                List {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        
+                        Button {
+                            addItem()
+                            self.task.removeAll()
+                            self.hideKeyboard()
                         } label: {
-                            VStack(alignment: .leading) {
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                Text(item.timestamp!, formatter: itemFormatter)
-                                    .foregroundColor(.gray)
-                                    .font(.footnote)
+                            Text("Save")
+                                .font(.headline)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    isButtonDisabled ? Color.gray : Color.pink
+                                )
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .disabled(isButtonDisabled)
+                    }
+                    .padding()
+                    
+                    
+                    List {
+                        ForEach(items) { item in
+                            NavigationLink {
+                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Text(item.task ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                    Text(item.timestamp!, formatter: itemFormatter)
+                                        .foregroundColor(.gray)
+                                        .font(.footnote)
+                                }
                             }
                         }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
+                    .padding(.vertical, 0)
+                    .frame(maxWidth: 640)
                 }
             }
+            .background(
+                BackgroundImageView()
+            )
+            .background(
+                backgroundGradient
+                    .edgesIgnoringSafeArea(.all)
+            )
+            .onAppear(perform: {
+                UITableView.appearance().backgroundColor = .clear
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
             }
             .navigationTitle("Daily tasks")
-            Text("Select an item")
         }
+        .navigationViewStyle(.stack)
     }
 }
 
