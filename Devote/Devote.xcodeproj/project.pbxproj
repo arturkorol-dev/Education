@@ -17,6 +17,7 @@
 		053FB13328AE2A8B001B5561 /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 053FB13028AE2A8B001B5561 /* sound-ding.mp3 */; };
 		053FB13428AE2A8B001B5561 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 053FB13128AE2A8B001B5561 /* sound-rise.mp3 */; };
 		053FB14728AF83F5001B5561 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053FB14628AF83F5001B5561 /* Constant.swift */; };
+		053FB15728B1507D001B5561 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053FB15628B1507D001B5561 /* HideKeyboardExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		053FB13128AE2A8B001B5561 /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		053FB13F28AE2FDF001B5561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		053FB14628AF83F5001B5561 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		053FB15628B1507D001B5561 /* HideKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		053FB13B28AE2E47001B5561 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				053FB15628B1507D001B5561 /* HideKeyboardExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				053FB12628AE2965001B5561 /* Persistence.swift in Sources */,
 				053FB11F28AE2963001B5561 /* ContentView.swift in Sources */,
+				053FB15728B1507D001B5561 /* HideKeyboardExtension.swift in Sources */,
 				053FB14728AF83F5001B5561 /* Constant.swift in Sources */,
 				053FB12928AE2965001B5561 /* Devote.xcdatamodeld in Sources */,
 				053FB11D28AE2963001B5561 /* DevoteApp.swift in Sources */,
