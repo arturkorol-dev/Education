@@ -59,6 +59,7 @@ struct NewTaskItemView: View {
                     self.task.removeAll()
                     self.hideKeyboard()
                     playSound(sound: "sound-ding", type: "mp3")
+                    feedback.notificationOccurred(.success)
                 } label: {
                     Text("Save")
                         .font(.system(size: 24, weight: .bold, design: .rounded))
