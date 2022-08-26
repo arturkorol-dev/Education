@@ -74,7 +74,7 @@ struct NewTaskItemView: View {
             .padding(.horizontal)
             .padding(.vertical, 20)
             .background(
-                isDarkMode ? Color(UIColor.secondarySystemBackground) : Color.white
+                isDarkMode ? Color(UIColor.secondarySystemBackground) : Color.white 
             )
             .cornerRadius(16)
             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.65), radius: 24)
