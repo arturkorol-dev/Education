@@ -58,6 +58,7 @@ struct NewTaskItemView: View {
                     addItem()
                     self.task.removeAll()
                     self.hideKeyboard()
+                    playSound(sound: "sound-ding", type: "mp3")
                 } label: {
                     Text("Save")
                         .font(.system(size: 24, weight: .bold, design: .rounded))
@@ -70,6 +71,11 @@ struct NewTaskItemView: View {
                         .cornerRadius(10)
                 }
                 .disabled(isButtonDisabled)
+                .onTapGesture {
+                    if isButtonDisabled {
+                        playSound(sound: "sound-tap", type: "mp3")
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.vertical, 20)
