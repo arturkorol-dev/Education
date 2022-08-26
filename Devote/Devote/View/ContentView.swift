@@ -70,7 +70,7 @@ struct ContentView: View {
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
                         }
-                        
+
                     }
                     .padding()
                     .foregroundColor(.white)
@@ -107,27 +107,19 @@ struct ContentView: View {
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
                 }
-                .blur(radius: showNewItemTask ? 8.0 : 0, opaque: false)
-                .transition(.move(edge: .bottom))
-                .animation(.easeOut, value: 0.5)
-                
                 //MARK: - NewTaskItem
                 if showNewItemTask {
-                    BlankView(
-                        backgroundColor: isDarkMode ? .black : .gray,
-                        backgroundOpacity: isDarkMode ? 0.3 : 0.5
-                    )
-                    .onTapGesture {
-                        withAnimation {
-                            showNewItemTask = false
+                    BlankView()
+                        .onTapGesture {
+                            withAnimation {
+                                showNewItemTask = false
+                            }
                         }
-                    }
                     NewTaskItemView(isShowing: $showNewItemTask)
                 }
             }
             .background(
                 BackgroundImageView()
-                    .blur(radius: showNewItemTask ? 8.0 : 0, opaque: false)
             )
             .background(
                 backgroundGradient
