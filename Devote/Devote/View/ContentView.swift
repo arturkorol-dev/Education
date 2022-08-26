@@ -11,9 +11,7 @@ import CoreData
 struct ContentView: View {
     //MARK: - Property
     @State var task = ""
-    private var isButtonDisabled: Bool {
-        task.isEmpty
-    }
+    @State private var showNewItemTask = false
     
     //MARK: - Fetching data
     @Environment(\.managedObjectContext) private var viewContext
@@ -24,23 +22,6 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     //MARK: - Methods
-    
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.task = task
-            newItem.id = UUID()
-            newItem.completion = false
-            
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
@@ -58,36 +39,32 @@ struct ContentView: View {
     //MARK: - Body
     var body: some View {
         NavigationView {
+            //MARK: - MainView
             ZStack {
                 VStack {
-                    VStack(spacing: 16) {
-                        TextField("New task", text: $task)
-                            .padding()
-                            .background(
-                                Color(UIColor.systemGray6)
-                            )
-                            .cornerRadius(10)
-                        
-                        Button {
-                            addItem()
-                            self.task.removeAll()
-                            self.hideKeyboard()
-                        } label: {
-                            Text("Save")
-                                .font(.headline)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    isButtonDisabled ? Color.gray : Color.pink
-                                )
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                        .disabled(isButtonDisabled)
+                    //MARK: - Header
+                    Spacer(minLength: 80)
+                    
+                    //MARK: - NewTaskButton
+                    
+                    Button {
+                        showNewItemTask = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
                     }
-                    .padding()
+                    .foregroundColor(.white)
+                    .padding(.vertical, 15)
+                    .padding(.horizontal, 20)
+                    .background(
+                        LinearGradient(colors: [.pink, .blue], startPoint: .leading, endPoint: .trailing)
+                            .clipShape(Capsule())
+                    )
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0.0, y: 4.0)
                     
-                    
+                    //MARK: - Tasks
                     List {
                         ForEach(items) { item in
                             NavigationLink {
@@ -108,6 +85,16 @@ struct ContentView: View {
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
+                }
+                //MARK: - NewTaskItem
+                if showNewItemTask {
+                    BlankView()
+                        .onTapGesture {
+                            withAnimation {
+                                showNewItemTask = false
+                            }
+                        }
+                    NewTaskItemView(isShowing: $showNewItemTask)
                 }
             }
             .background(
