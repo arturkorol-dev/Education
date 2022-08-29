@@ -17,6 +17,10 @@
 		05BA916128BBAFA800BA89B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BA916028BBAFA800BA89B3 /* Preview Assets.xcassets */; };
 		05BA917328BBB69F00BA89B3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA917228BBB69F00BA89B3 /* Note.swift */; };
 		05BA917528BBE24700BA89B3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA917428BBE24700BA89B3 /* DetailView.swift */; };
+		05BA917928BC8C5300BA89B3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA917828BC8C5300BA89B3 /* HeaderView.swift */; };
+		05BA917B28BC9FB700BA89B3 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA917A28BC9FB700BA89B3 /* CreditsView.swift */; };
+		05BA917C28BCA5FF00BA89B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BA914C28BBAFA700BA89B3 /* Assets.xcassets */; };
+		05BA917D28BCA60300BA89B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BA914C28BBAFA700BA89B3 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,8 @@
 		05BA916228BBAFA800BA89B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05BA917228BBB69F00BA89B3 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		05BA917428BBE24700BA89B3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		05BA917828BC8C5300BA89B3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		05BA917A28BC9FB700BA89B3 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 		05BA915628BBAFA700BA89B3 /* Notes WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				05BA917628BC8C2700BA89B3 /* Component */,
 				05BA917128BBB67400BA89B3 /* Model */,
 				05BA917028BBB66E00BA89B3 /* View */,
 				05BA915928BBAFA700BA89B3 /* NotesApp.swift */,
@@ -141,6 +148,7 @@
 			children = (
 				05BA915728BBAFA700BA89B3 /* ContentView.swift */,
 				05BA917428BBE24700BA89B3 /* DetailView.swift */,
+				05BA917A28BC9FB700BA89B3 /* CreditsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +159,14 @@
 				05BA917228BBB69F00BA89B3 /* Note.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		05BA917628BC8C2700BA89B3 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				05BA917828BC8C5300BA89B3 /* HeaderView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BA917C28BCA5FF00BA89B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BA916128BBAFA800BA89B3 /* Preview Assets.xcassets in Resources */,
+				05BA917D28BCA60300BA89B3 /* Assets.xcassets in Resources */,
 				05BA915E28BBAFA800BA89B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BA915828BBAFA700BA89B3 /* ContentView.swift in Sources */,
+				05BA917B28BC9FB700BA89B3 /* CreditsView.swift in Sources */,
+				05BA917928BC8C5300BA89B3 /* HeaderView.swift in Sources */,
 				05BA915A28BBAFA700BA89B3 /* NotesApp.swift in Sources */,
 				05BA915C28BBAFA700BA89B3 /* ComplicationController.swift in Sources */,
 				05BA917528BBE24700BA89B3 /* DetailView.swift in Sources */,
