@@ -21,6 +21,7 @@
 		05BA917B28BC9FB700BA89B3 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA917A28BC9FB700BA89B3 /* CreditsView.swift */; };
 		05BA917C28BCA5FF00BA89B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BA914C28BBAFA700BA89B3 /* Assets.xcassets */; };
 		05BA917D28BCA60300BA89B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BA914C28BBAFA700BA89B3 /* Assets.xcassets */; };
+		05BA917F28BCABD300BA89B3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA917E28BCABD300BA89B3 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		05BA917428BBE24700BA89B3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		05BA917828BC8C5300BA89B3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		05BA917A28BC9FB700BA89B3 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		05BA917E28BCABD300BA89B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				05BA915728BBAFA700BA89B3 /* ContentView.swift */,
 				05BA917428BBE24700BA89B3 /* DetailView.swift */,
 				05BA917A28BC9FB700BA89B3 /* CreditsView.swift */,
+				05BA917E28BCABD300BA89B3 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BA915828BBAFA700BA89B3 /* ContentView.swift in Sources */,
+				05BA917F28BCABD300BA89B3 /* SettingsView.swift in Sources */,
 				05BA917B28BC9FB700BA89B3 /* CreditsView.swift in Sources */,
 				05BA917928BC8C5300BA89B3 /* HeaderView.swift in Sources */,
 				05BA915A28BBAFA700BA89B3 /* NotesApp.swift in Sources */,
