@@ -16,6 +16,9 @@
 		051821B028C4C01600462099 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821AE28C4C01600462099 /* VisualEffectBlur.swift */; };
 		051821B128C4C01600462099 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821AF28C4C01600462099 /* ImagePicker.swift */; };
 		051821B428C4C8D900462099 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821B328C4C8D900462099 /* Color+Ext.swift */; };
+		05D0F0C928C4D4D80074AB0F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0C828C4D4D80074AB0F /* View+Ext.swift */; };
+		05D0F0CC28C520A20074AB0F /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0CB28C520A20074AB0F /* GradientTextView.swift */; };
+		05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		051821AE28C4C01600462099 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		051821AF28C4C01600462099 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		051821B328C4C8D900462099 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		05D0F0C828C4D4D80074AB0F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		05D0F0CB28C520A20074AB0F /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
+		05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +69,10 @@
 			children = (
 				051821B228C4C8B600462099 /* Ext+ */,
 				051821AD28C4C01600462099 /* Helpers */,
-				0518219A28C4BF9B00462099 /* AuthenticationApp.swift */,
-				0518219C28C4BF9B00462099 /* ContentView.swift */,
-				0518219E28C4BF9D00462099 /* Assets.xcassets */,
+				051821B528C4CE8D00462099 /* App */,
+				051821B728C4CF1600462099 /* View */,
+				05D0F0CA28C520870074AB0F /* CustomView */,
+				051821B628C4CEB300462099 /* Resourses */,
 				051821A328C4BF9D00462099 /* Persistence.swift */,
 				051821A528C4BF9D00462099 /* Authentication.xcdatamodeld */,
 				051821A028C4BF9D00462099 /* Preview Content */,
@@ -94,8 +101,42 @@
 			isa = PBXGroup;
 			children = (
 				051821B328C4C8D900462099 /* Color+Ext.swift */,
+				05D0F0C828C4D4D80074AB0F /* View+Ext.swift */,
 			);
 			path = "Ext+";
+			sourceTree = "<group>";
+		};
+		051821B528C4CE8D00462099 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0518219A28C4BF9B00462099 /* AuthenticationApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		051821B628C4CEB300462099 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				0518219E28C4BF9D00462099 /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		051821B728C4CF1600462099 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0518219C28C4BF9B00462099 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05D0F0CA28C520870074AB0F /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				05D0F0CB28C520A20074AB0F /* GradientTextView.swift */,
+				05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,8 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D0F0C928C4D4D80074AB0F /* View+Ext.swift in Sources */,
 				051821B028C4C01600462099 /* VisualEffectBlur.swift in Sources */,
+				05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */,
 				051821B428C4C8D900462099 /* Color+Ext.swift in Sources */,
+				05D0F0CC28C520A20074AB0F /* GradientTextView.swift in Sources */,
 				051821A428C4BF9D00462099 /* Persistence.swift in Sources */,
 				0518219D28C4BF9B00462099 /* ContentView.swift in Sources */,
 				051821B128C4C01600462099 /* ImagePicker.swift in Sources */,
