@@ -11,13 +11,7 @@ struct GradientButtonView: View {
     //MARK: - Properties
     
     var action: () -> Void
-    
-    var buttonGradient: [Color] = [
-        Color(red: 101/255, green: 134/255, blue: 1),
-        Color(red: 1, green: 64/255, blue: 80/255),
-        Color(red: 109/255, green: 1, blue: 185/255),
-        Color(red: 39/255, green: 232/255, blue: 1)
-    ]
+    @State private var colorAngle: Double = 0.0
     
     //MARK: - Body
     
@@ -27,7 +21,7 @@ struct GradientButtonView: View {
         } label: {
             GeometryReader { geometry in
                 ZStack {
-                    AngularGradient(colors: buttonGradient, center: .center, angle: .zero)
+                    AngularGradient(colors: gradientArray, center: .center, angle: .degrees(colorAngle))
                         .blendMode(.overlay)
                         .blur(radius: 8)
                         .mask {
@@ -35,6 +29,11 @@ struct GradientButtonView: View {
                                 .frame(height: 50)
                                 .frame(maxWidth: geometry.size.width - 16)
                                 .blur(radius: 8)
+                        }
+                        .onAppear {
+                            withAnimation(.linear(duration: 7.0)) {
+                                self.colorAngle += 350.0
+                            }
                         }
                     GradientTextView(text: "Sign Up")
                         .font(.headline)
@@ -59,5 +58,8 @@ struct GradientButtonView: View {
 struct GradientButtonView_Previews: PreviewProvider {
     static var previews: some View {
         GradientButtonView(action: {})
+            .previewLayout(.sizeThatFits)
+            .padding()
+            .background(.black)
     }
 }
