@@ -21,6 +21,8 @@
 		05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */; };
 		05D0F0D028C6602C0074AB0F /* TextFieldIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0CF28C6602C0074AB0F /* TextFieldIconView.swift */; };
 		05D0F0D228C662850074AB0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0D128C662850074AB0F /* Constant.swift */; };
+		05F3C66B28C7714600C9C7A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 05F3C66A28C7714600C9C7A4 /* FirebaseAuth */; };
+		05F3C66D28C772D300C9C7A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonView.swift; sourceTree = "<group>"; };
 		05D0F0CF28C6602C0074AB0F /* TextFieldIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldIconView.swift; sourceTree = "<group>"; };
 		05D0F0D128C662850074AB0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F3C66B28C7714600C9C7A4 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,7 @@
 				05D0F0CA28C520870074AB0F /* CustomView */,
 				051821B628C4CEB300462099 /* Resourses */,
 				051821A328C4BF9D00462099 /* Persistence.swift */,
+				05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */,
 				051821A528C4BF9D00462099 /* Authentication.xcdatamodeld */,
 				051821A028C4BF9D00462099 /* Preview Content */,
 			);
@@ -161,6 +166,9 @@
 			dependencies = (
 			);
 			name = Authentication;
+			packageProductDependencies = (
+				05F3C66A28C7714600C9C7A4 /* FirebaseAuth */,
+			);
 			productName = Authentication;
 			productReference = 0518219728C4BF9B00462099 /* Authentication.app */;
 			productType = "com.apple.product-type.application";
@@ -189,6 +197,9 @@
 				Base,
 			);
 			mainGroup = 0518218E28C4BF9B00462099;
+			packageReferences = (
+				05F3C66928C7714600C9C7A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0518219828C4BF9B00462099 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,6 +216,7 @@
 			files = (
 				051821A228C4BF9D00462099 /* Preview Assets.xcassets in Resources */,
 				0518219F28C4BF9D00462099 /* Assets.xcassets in Resources */,
+				05F3C66D28C772D300C9C7A4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +439,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		05F3C66928C7714600C9C7A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05F3C66A28C7714600C9C7A4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05F3C66928C7714600C9C7A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		051821A528C4BF9D00462099 /* Authentication.xcdatamodeld */ = {
