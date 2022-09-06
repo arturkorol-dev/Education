@@ -10,14 +10,15 @@ import SwiftUI
 struct GradientButtonView: View {
     //MARK: - Properties
     
-    var action: () -> Void
+    var title: String
+    var buttonAction: () -> Void
     @State private var colorAngle: Double = 0.0
     
     //MARK: - Body
     
     var body: some View {
         Button {
-            action()
+            buttonAction()
         } label: {
             GeometryReader { geometry in
                 ZStack {
@@ -35,7 +36,7 @@ struct GradientButtonView: View {
                                 self.colorAngle += 350.0
                             }
                         }
-                    GradientTextView(text: "Sign Up")
+                    GradientTextView(text: title)
                         .font(.headline)
                         .frame(width: geometry.size.width - 16,
                                height: 50
@@ -57,7 +58,7 @@ struct GradientButtonView: View {
 
 struct GradientButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        GradientButtonView(action: {})
+        GradientButtonView(title: "Sign Up", buttonAction: {})
             .previewLayout(.sizeThatFits)
             .padding()
             .background(.black)

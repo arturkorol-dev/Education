@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0518219B28C4BF9B00462099 /* AuthenticationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0518219A28C4BF9B00462099 /* AuthenticationApp.swift */; };
-		0518219D28C4BF9B00462099 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0518219C28C4BF9B00462099 /* ContentView.swift */; };
+		0518219D28C4BF9B00462099 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0518219C28C4BF9B00462099 /* SignupView.swift */; };
 		0518219F28C4BF9D00462099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0518219E28C4BF9D00462099 /* Assets.xcassets */; };
 		051821A228C4BF9D00462099 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051821A128C4BF9D00462099 /* Preview Assets.xcassets */; };
 		051821A428C4BF9D00462099 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821A328C4BF9D00462099 /* Persistence.swift */; };
@@ -23,12 +23,13 @@
 		05D0F0D228C662850074AB0F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0D128C662850074AB0F /* Constant.swift */; };
 		05F3C66B28C7714600C9C7A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 05F3C66A28C7714600C9C7A4 /* FirebaseAuth */; };
 		05F3C66D28C772D300C9C7A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */; };
+		05F3C66F28C779B200C9C7A4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C66E28C779B200C9C7A4 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0518219728C4BF9B00462099 /* Authentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authentication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0518219A28C4BF9B00462099 /* AuthenticationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationApp.swift; sourceTree = "<group>"; };
-		0518219C28C4BF9B00462099 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0518219C28C4BF9B00462099 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		0518219E28C4BF9D00462099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		051821A128C4BF9D00462099 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		051821A328C4BF9D00462099 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		05D0F0CF28C6602C0074AB0F /* TextFieldIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldIconView.swift; sourceTree = "<group>"; };
 		05D0F0D128C662850074AB0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05F3C66E28C779B200C9C7A4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +137,8 @@
 		051821B728C4CF1600462099 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0518219C28C4BF9B00462099 /* ContentView.swift */,
+				0518219C28C4BF9B00462099 /* SignupView.swift */,
+				05F3C66E28C779B200C9C7A4 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,13 +231,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				05D0F0C928C4D4D80074AB0F /* View+Ext.swift in Sources */,
+				05F3C66F28C779B200C9C7A4 /* ProfileView.swift in Sources */,
 				05D0F0D028C6602C0074AB0F /* TextFieldIconView.swift in Sources */,
 				051821B028C4C01600462099 /* VisualEffectBlur.swift in Sources */,
 				05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */,
 				051821B428C4C8D900462099 /* Color+Ext.swift in Sources */,
 				05D0F0CC28C520A20074AB0F /* GradientTextView.swift in Sources */,
 				051821A428C4BF9D00462099 /* Persistence.swift in Sources */,
-				0518219D28C4BF9B00462099 /* ContentView.swift in Sources */,
+				0518219D28C4BF9B00462099 /* SignupView.swift in Sources */,
 				051821B128C4C01600462099 /* ImagePicker.swift in Sources */,
 				0518219B28C4BF9B00462099 /* AuthenticationApp.swift in Sources */,
 				051821A728C4BF9D00462099 /* Authentication.xcdatamodeld in Sources */,

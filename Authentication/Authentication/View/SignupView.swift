@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
-struct ContentView: View {
+struct SignupView: View {
     //MARK: - Properties
     
     @State private var email: String = ""
@@ -16,6 +17,8 @@ struct ContentView: View {
     @State private var editingPasswordTextField: Bool = false
     @State private var emailIconBounds: Bool = false
     @State private var passwordIconBounds: Bool = false
+    @State private var showProfileView: Bool = false
+    
     private let haptic = UIImpactFeedbackGenerator()
     
     //MARK: - Body
@@ -53,6 +56,9 @@ struct ContentView: View {
             )
             .cornerRadius(30)
             .padding(.horizontal)
+        }
+        .fullScreenCover(isPresented: $showProfileView) {
+            ProfileView()
         }
     }
     
@@ -144,10 +150,17 @@ struct ContentView: View {
     
     @ViewBuilder private func bottomView() -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            GradientButtonView(action: {
-                
+            GradientButtonView(title: "Create account") {
+                signUp()
                 haptic.impactOccurred()
-            })
+            }
+            .onAppear {
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if user != nil {
+                        self.showProfileView.toggle()
+                    }
+                }
+            }
             
             Text("By clicking on Sign up, you agree to our Terms of service and Privacy policy.")
                 .font(.footnote)
@@ -172,12 +185,24 @@ struct ContentView: View {
             }
         }
     }
+    
+    //MARK: - Methods
+    
+    func signUp() {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            print("User has created account")
+        }
+    }
 }
 
 //MARK: - Preview
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SignupView()
     }
 }
