@@ -24,6 +24,8 @@
 		05F3C66B28C7714600C9C7A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 05F3C66A28C7714600C9C7A4 /* FirebaseAuth */; };
 		05F3C66D28C772D300C9C7A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */; };
 		05F3C66F28C779B200C9C7A4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C66E28C779B200C9C7A4 /* ProfileView.swift */; };
+		05F3C67128C8590600C9C7A4 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C67028C8590600C9C7A4 /* SignInWithAppleButton.swift */; };
+		05F3C67428C85DD800C9C7A4 /* SignInWithAppleObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F3C67328C85DD800C9C7A4 /* SignInWithAppleObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		05D0F0D128C662850074AB0F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		05F3C66E28C779B200C9C7A4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		05F3C67028C8590600C9C7A4 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
+		05F3C67328C85DD800C9C7A4 /* SignInWithAppleObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +87,6 @@
 				051821B728C4CF1600462099 /* View */,
 				05D0F0CA28C520870074AB0F /* CustomView */,
 				051821B628C4CEB300462099 /* Resourses */,
-				051821A328C4BF9D00462099 /* Persistence.swift */,
 				05F3C66C28C772D300C9C7A4 /* GoogleService-Info.plist */,
 				051821A528C4BF9D00462099 /* Authentication.xcdatamodeld */,
 				051821A028C4BF9D00462099 /* Preview Content */,
@@ -105,6 +108,7 @@
 				051821AE28C4C01600462099 /* VisualEffectBlur.swift */,
 				051821AF28C4C01600462099 /* ImagePicker.swift */,
 				05D0F0D128C662850074AB0F /* Constant.swift */,
+				05F3C67328C85DD800C9C7A4 /* SignInWithAppleObject.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -129,6 +133,7 @@
 		051821B628C4CEB300462099 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				051821A328C4BF9D00462099 /* Persistence.swift */,
 				0518219E28C4BF9D00462099 /* Assets.xcassets */,
 			);
 			path = Resourses;
@@ -149,6 +154,7 @@
 				05D0F0CB28C520A20074AB0F /* GradientTextView.swift */,
 				05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */,
 				05D0F0CF28C6602C0074AB0F /* TextFieldIconView.swift */,
+				05F3C67028C8590600C9C7A4 /* SignInWithAppleButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -230,12 +236,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F3C67428C85DD800C9C7A4 /* SignInWithAppleObject.swift in Sources */,
 				05D0F0C928C4D4D80074AB0F /* View+Ext.swift in Sources */,
 				05F3C66F28C779B200C9C7A4 /* ProfileView.swift in Sources */,
 				05D0F0D028C6602C0074AB0F /* TextFieldIconView.swift in Sources */,
 				051821B028C4C01600462099 /* VisualEffectBlur.swift in Sources */,
 				05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */,
 				051821B428C4C8D900462099 /* Color+Ext.swift in Sources */,
+				05F3C67128C8590600C9C7A4 /* SignInWithAppleButton.swift in Sources */,
 				05D0F0CC28C520A20074AB0F /* GradientTextView.swift in Sources */,
 				051821A428C4BF9D00462099 /* Persistence.swift in Sources */,
 				0518219D28C4BF9B00462099 /* SignupView.swift in Sources */,

@@ -13,11 +13,20 @@ struct SignupView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var rotatingAngle: Double = 0.0
     @State private var editingEmailTextField: Bool = false
     @State private var editingPasswordTextField: Bool = false
     @State private var emailIconBounds: Bool = false
     @State private var passwordIconBounds: Bool = false
     @State private var showProfileView: Bool = false
+    @State private var isSignIn: Bool = false
+    @State private var fadeToggle: Bool = true
+    
+    @State private var showAlertView: Bool = false
+    @State private var alertTitle: String = ""
+    @State private var alertMassage: String = ""
+    
+    @State private var signInWithAppleObject = SignInWithAppleObject()
     
     private let haptic = UIImpactFeedbackGenerator()
     
@@ -25,10 +34,16 @@ struct SignupView: View {
     
     var body: some View {
         ZStack {
-            Image("background-3")
+            Image(isSignIn ? "background-3" : "background-1")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
+                .opacity(fadeToggle ? 1.0 : 0.0)
+            
+            Color.secondaryBackground
+                .edgesIgnoringSafeArea(.all)
+                .opacity(fadeToggle ? 0.0 : 1.0)
+            
             VStack {
                 VStack(alignment: .leading, spacing: 16) {
                     headerView()
@@ -39,6 +54,10 @@ struct SignupView: View {
                 }
                 .padding(20)
             }
+            .rotation3DEffect(
+                Angle.degrees(rotatingAngle),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+            )
             .background(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(
@@ -56,6 +75,13 @@ struct SignupView: View {
             )
             .cornerRadius(30)
             .padding(.horizontal)
+            .rotation3DEffect(
+                Angle.degrees(rotatingAngle),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+            )
+            .alert(isPresented: $showAlertView) {
+                Alert(title: Text(alertTitle), message: Text(alertMassage), dismissButton: .cancel())
+            }
         }
         .fullScreenCover(isPresented: $showProfileView) {
             ProfileView()
@@ -66,7 +92,7 @@ struct SignupView: View {
     
     @ViewBuilder private func headerView() -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Sign up")
+            Text(isSignIn ? "Sign in" : "Sign up")
                 .font(.largeTitle.bold())
                 .foregroundColor(.white)
             Text("Access to library of tutorials, apps and courses created by Artur Korol.")
@@ -150,9 +176,9 @@ struct SignupView: View {
     
     @ViewBuilder private func bottomView() -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            GradientButtonView(title: "Create account") {
-                signUp()
-                haptic.impactOccurred()
+            GradientButtonView(title: isSignIn ? "Sign in" : "Create account") {
+                self.authorise()
+                self.haptic.impactOccurred()
             }
             .onAppear {
                 Auth.auth().addStateDidChangeListener { auth, user in
@@ -162,25 +188,62 @@ struct SignupView: View {
                 }
             }
             
-            Text("By clicking on Sign up, you agree to our Terms of service and Privacy policy.")
-                .font(.footnote)
-                .foregroundColor(.white.opacity(0.7))
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.white.opacity(0.1))
+            if !isSignIn {
+                Text("By clicking on Sign up, you agree to our Terms of service and Privacy policy.")
+                    .font(.footnote)
+                    .foregroundColor(.white.opacity(0.7))
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.white.opacity(0.1))
+            }
+            Button {
+                withAnimation(.easeInOut(duration: 0.35)) {
+                    self.fadeToggle.toggle()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                        withAnimation(.easeInOut(duration: 0.35)) {
+                            self.fadeToggle.toggle()
+                        }
+                    }
+                }
+                
+                withAnimation(.easeInOut(duration: 0.7)) {
+                    self.isSignIn.toggle()
+                    self.haptic.impactOccurred()
+                    self.rotatingAngle += 180.0
+                }
+            } label: {
+                HStack(spacing: 4) {
+                    Text(isSignIn ? "Don't have an account?" : "Already have an account?")
+                        .font(.footnote)
+                        .foregroundColor(.white.opacity(0.7))
+                    GradientTextView(text: isSignIn ? "Sign up" : "Sign in")
+                        .font(.footnote.bold())
+                }
+            }
             
-            VStack(alignment: .leading, spacing: 16) {
+            if isSignIn {
                 Button {
-                    //TODO: Add action
-                    haptic.impactOccurred()
+                    resetPassword()
                 } label: {
                     HStack(spacing: 4) {
-                        Text("Already have an account?")
+                        Text("Forgot password?")
                             .font(.footnote)
                             .foregroundColor(.white.opacity(0.7))
-                        GradientTextView(text: "Sign In")
+                        GradientTextView(text: "Reset Password")
                             .font(.footnote.bold())
                     }
+                }
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.white.opacity(0.1))
+                
+                Button {
+                    signInWithAppleObject.signInWithApple()
+                } label: {
+                    SignInWithAppleButton()
+                        .frame(height: 50)
+                        .cornerRadius(16)
                 }
             }
         }
@@ -188,13 +251,39 @@ struct SignupView: View {
     
     //MARK: - Methods
     
-    func signUp() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+    private func authorise() {
+        if !isSignIn {
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                guard error == nil else {
+                    self.alertTitle = "Uh-oh!"
+                    self.alertMassage = error!.localizedDescription
+                    self.showAlertView.toggle()
+                    return
+                }
+            }
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                guard error == nil else {
+                    self.alertTitle = "Uh-oh!"
+                    self.alertMassage = error!.localizedDescription
+                    self.showAlertView.toggle()
+                    return
+                }
+            }
+        }
+    }
+    
+    private func resetPassword() {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
             guard error == nil else {
-                print(error!.localizedDescription)
+                self.alertTitle = "Uh-oh!"
+                self.alertMassage = error!.localizedDescription
+                self.showAlertView.toggle()
                 return
             }
-            print("User has created account")
+            self.alertTitle = "Password reset email sent"
+            self.alertMassage = "Check your inbox for an email to reset your password"
+            self.showAlertView.toggle()
         }
     }
 }
