@@ -16,6 +16,7 @@
 		051821B028C4C01600462099 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821AE28C4C01600462099 /* VisualEffectBlur.swift */; };
 		051821B128C4C01600462099 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821AF28C4C01600462099 /* ImagePicker.swift */; };
 		051821B428C4C8D900462099 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051821B328C4C8D900462099 /* Color+Ext.swift */; };
+		0566859528D0BE210079FAA3 /* GradientProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0566859428D0BE210079FAA3 /* GradientProfileImageView.swift */; };
 		05D0F0C928C4D4D80074AB0F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0C828C4D4D80074AB0F /* View+Ext.swift */; };
 		05D0F0CC28C520A20074AB0F /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0CB28C520A20074AB0F /* GradientTextView.swift */; };
 		05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */; };
@@ -39,6 +40,7 @@
 		051821AE28C4C01600462099 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		051821AF28C4C01600462099 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		051821B328C4C8D900462099 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		0566859428D0BE210079FAA3 /* GradientProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientProfileImageView.swift; sourceTree = "<group>"; };
 		05D0F0C828C4D4D80074AB0F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		05D0F0CB28C520A20074AB0F /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				05D0F0CD28C526AD0074AB0F /* GradientButtonView.swift */,
 				05D0F0CF28C6602C0074AB0F /* TextFieldIconView.swift */,
 				05F3C67028C8590600C9C7A4 /* SignInWithAppleButton.swift */,
+				0566859428D0BE210079FAA3 /* GradientProfileImageView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				05D0F0D028C6602C0074AB0F /* TextFieldIconView.swift in Sources */,
 				051821B028C4C01600462099 /* VisualEffectBlur.swift in Sources */,
 				05D0F0CE28C526AD0074AB0F /* GradientButtonView.swift in Sources */,
+				0566859528D0BE210079FAA3 /* GradientProfileImageView.swift in Sources */,
 				051821B428C4C8D900462099 /* Color+Ext.swift in Sources */,
 				05F3C67128C8590600C9C7A4 /* SignInWithAppleButton.swift in Sources */,
 				05D0F0CC28C520A20074AB0F /* GradientTextView.swift in Sources */,
