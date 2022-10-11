@@ -9,6 +9,12 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
+    //MARK: - Properties
+    
+    private var isUserNameEntered: Bool {
+        return !userNameTextField.text!.isEmpty
+    }
+    
     //MARK: - UIImageView
     
     private let logoImageView: UIImageView = {
@@ -31,8 +37,8 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         layout()
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,9 +46,10 @@ final class SearchViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    //MARK: - Private methods
+    //MARK: - Layout
     
     private func layout() {
+        view.backgroundColor = .systemBackground
         makeLayoutForLogo()
         makeLayoutForTextField()
         makeLayoutForSearchButton()
@@ -76,5 +83,38 @@ final class SearchViewController: UIViewController {
             searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             searchButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    //MARK: - Private methods
+    
+    private func configure() {
+        userNameTextField.delegate = self
+        searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
+        dismissKeyboardTabGesture()
+    }
+    
+    private func dismissKeyboardTabGesture() {
+        let tab = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tab)
+    }
+    
+   @objc private func searchButtonPressed() {
+       guard isUserNameEntered else {
+           print("Please enter user name")
+           return
+       }
+       ///Navigation
+        let followersVC = FollowerListViewController()
+        followersVC.userName = userNameTextField.text
+        followersVC.title = userNameTextField.text
+        navigationController?.pushViewController(followersVC, animated: true)
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchButtonPressed()
+        return true
     }
 }
