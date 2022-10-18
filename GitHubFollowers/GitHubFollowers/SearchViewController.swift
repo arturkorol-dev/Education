@@ -100,7 +100,7 @@ final class SearchViewController: UIViewController {
     
    @objc private func searchButtonPressed() {
        guard isUserNameEntered else {
-           print("Please enter user name")
+           presentGFAlertOnMainThread(title: "Oppps", message: "You forgot enter user name", buttonTitle: "Ok")
            return
        }
        ///Navigation
