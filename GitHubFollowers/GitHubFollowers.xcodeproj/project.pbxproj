@@ -51,6 +51,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05874D3329000C44002BD607 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				055DA2E228F926560028BADC /* GFAlertVC.swift */,
+				05874D3929000EED002BD607 /* Buttons */,
+				05874D3829000EB4002BD607 /* TextFields */,
+				05874D3729000E9E002BD607 /* Labels */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		05874D3429000C83002BD607 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				05A9EE3128F0AB0F0084B452 /* LaunchScreen.storyboard */,
+				05A9EE3428F0AB0F0084B452 /* Info.plist */,
+				05A9EE2F28F0AB0F0084B452 /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		05874D3529000D42002BD607 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				056AA73B28FF2CB900B09D83 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		05874D3629000E85002BD607 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				05A9EE2628F0AB0D0084B452 /* AppDelegate.swift */,
+				05A9EE2828F0AB0D0084B452 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		05874D3729000E9E002BD607 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				055DA2DE28F55F3E0028BADC /* GFTitleLabel.swift */,
+				055DA2E028F924EB0028BADC /* GFBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		05874D3829000EB4002BD607 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				055DA2DA28F527710028BADC /* GFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		05874D3929000EED002BD607 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				053B80ED28F4818E00C49A9C /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		05874D3A2900166D002BD607 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				053B80CB28F1E66100C49A9C /* FavoritesViewController.swift */,
+				055DA2DC28F5558E0028BADC /* FollowerListViewController.swift */,
+				053B80C928F1E64900C49A9C /* SearchViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		05A9EE1A28F0AB0D0084B452 = {
 			isa = PBXGroup;
 			children = (
@@ -70,20 +143,11 @@
 		05A9EE2528F0AB0D0084B452 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				05A9EE2628F0AB0D0084B452 /* AppDelegate.swift */,
-				05A9EE2F28F0AB0F0084B452 /* Assets.xcassets */,
-				053B80CB28F1E66100C49A9C /* FavoritesViewController.swift */,
-				055DA2DC28F5558E0028BADC /* FollowerListViewController.swift */,
-				053B80ED28F4818E00C49A9C /* GFButton.swift */,
-				055DA2DA28F527710028BADC /* GFTextField.swift */,
-				055DA2DE28F55F3E0028BADC /* GFTitleLabel.swift */,
-				055DA2E028F924EB0028BADC /* GFBodyLabel.swift */,
-				055DA2E228F926560028BADC /* GFAlertVC.swift */,
-				05A9EE3428F0AB0F0084B452 /* Info.plist */,
-				05A9EE3128F0AB0F0084B452 /* LaunchScreen.storyboard */,
-				05A9EE2828F0AB0D0084B452 /* SceneDelegate.swift */,
-				053B80C928F1E64900C49A9C /* SearchViewController.swift */,
-				056AA73B28FF2CB900B09D83 /* UIViewController+Ext.swift */,
+				05874D3629000E85002BD607 /* App */,
+				05874D3529000D42002BD607 /* Extensions */,
+				05874D3A2900166D002BD607 /* Views */,
+				05874D3329000C44002BD607 /* CustomViews */,
+				05874D3429000C83002BD607 /* Resourses */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";
@@ -309,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MJD54HBLFX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubFollowers/Info.plist;
+				INFOPLIST_FILE = GitHubFollowers/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -336,7 +400,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MJD54HBLFX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubFollowers/Info.plist;
+				INFOPLIST_FILE = GitHubFollowers/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
