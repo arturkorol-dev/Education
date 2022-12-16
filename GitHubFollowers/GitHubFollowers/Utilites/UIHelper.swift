@@ -9,6 +9,9 @@ import UIKit
 
 struct UIHelper {
     
+    /// Creating three column for table view
+    ///
+    /// - Parameter: View  is a view what we want to use with filter
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let width = view.bounds.width
         let padding: CGFloat = 12
