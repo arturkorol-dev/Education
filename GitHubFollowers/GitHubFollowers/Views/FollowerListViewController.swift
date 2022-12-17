@@ -54,9 +54,9 @@ class FollowerListViewController: UIViewController {
     ///     - page: Page number of a list.
     ///
     private func getFollowers(for userName: String, page: Int) {
+        requestDidStart()
         NetworkingManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
             guard let self = self else { return }
-            
             switch result {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false}
@@ -65,6 +65,7 @@ class FollowerListViewController: UIViewController {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Opps", message: error.rawValue, buttonTitle: "Ok")
             }
+            self.requestDidEnd()
         }
     }
     
