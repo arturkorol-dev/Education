@@ -46,4 +46,10 @@ extension UIViewController {
             containerView = nil
         }
     }
+    
+    func showEmptyStateView(with massage: String, in view: UIView) {
+        let emptyView = GFEmptyStateView(title: massage)
+        emptyView.frame = view.bounds
+        view.addSubview(emptyView)
+    }
 }

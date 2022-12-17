@@ -27,6 +27,7 @@
 		05A9EE2928F0AB0D0084B452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9EE2828F0AB0D0084B452 /* SceneDelegate.swift */; };
 		05A9EE3028F0AB0F0084B452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A9EE2F28F0AB0F0084B452 /* Assets.xcassets */; };
 		05A9EE3328F0AB0F0084B452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A9EE3128F0AB0F0084B452 /* LaunchScreen.storyboard */; };
+		05F71E1A294E0CFD008DE0EE /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F71E19294E0CFD008DE0EE /* GFEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		05A9EE2F28F0AB0F0084B452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05A9EE3228F0AB0F0084B452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05A9EE3428F0AB0F0084B452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05F71E19294E0CFD008DE0EE /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		05874D3329000C44002BD607 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				05F71E18294E0CD6008DE0EE /* Views */,
 				0569267F290D884200DC10D0 /* ImageView */,
 				0569267C290D864500DC10D0 /* Cells */,
 				0569267B290D863500DC10D0 /* ViewControllers */,
@@ -221,6 +224,14 @@
 			path = GitHubFollowers;
 			sourceTree = "<group>";
 		};
+		05F71E18294E0CD6008DE0EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05F71E19294E0CFD008DE0EE /* GFEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +304,7 @@
 			files = (
 				05874D3F290079D5002BD607 /* User.swift in Sources */,
 				055DA2DB28F527710028BADC /* GFTextField.swift in Sources */,
+				05F71E1A294E0CFD008DE0EE /* GFEmptyStateView.swift in Sources */,
 				053B80CA28F1E64900C49A9C /* SearchViewController.swift in Sources */,
 				053B80EE28F4818E00C49A9C /* GFButton.swift in Sources */,
 				056AA73C28FF2CB900B09D83 /* UIViewController+Ext.swift in Sources */,
