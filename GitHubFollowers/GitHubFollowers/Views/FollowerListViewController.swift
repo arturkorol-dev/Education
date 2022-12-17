@@ -20,6 +20,8 @@ class FollowerListViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
     var followers: [Follower] = []
+    var page: Int = 1
+    var hasMoreFollowers: Bool = true
     
     //MARK: - Life cycle
     
@@ -30,26 +32,35 @@ class FollowerListViewController: UIViewController {
     
     //MARK: - Private Methods
     
+    /// Call our methods when view did load.
     private func config() {
         setupView()
-        getFollowers()
+        getFollowers(for: userName, page: page)
         configureCollectionView()
         configureDataSource()
     }
     
+    /// Set default values to the view.
     private func setupView() {
         view.backgroundColor = .systemBackground
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func getFollowers() {
-        NetworkingManager.shared.getFollowers(for: userName, page: 1) { [weak self] result in
+    /// Get user data about his followers.
+    ///
+    /// - Parameters:
+    ///     - userName: Our user name on git hub.
+    ///     - page: Page number of a list.
+    ///
+    private func getFollowers(for userName: String, page: Int) {
+        NetworkingManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let followers):
-                self.followers = followers
+                if followers.count < 100 { self.hasMoreFollowers = false}
+                self.followers.append(contentsOf: followers)
                 self.updateData()
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Opps", message: error.rawValue, buttonTitle: "Ok")
@@ -57,16 +68,19 @@ class FollowerListViewController: UIViewController {
         }
     }
     
+    /// Configure collection view.
     private func configureCollectionView() {
         collectionView = UICollectionView(
             frame: view.bounds,
             collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view)
         )
+        collectionView.delegate = self
         
         view.addSubview(collectionView)
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
+    /// Configure Data Source.
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(
             collectionView: collectionView,
@@ -78,10 +92,25 @@ class FollowerListViewController: UIViewController {
         })
     }
     
+    /// Update data for CollectionView.
     private func updateData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(self.followers)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
+    }
+}
+
+extension FollowerListViewController: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreFollowers else { return }
+            self.page += 1
+            self.getFollowers(for: userName, page: page)
+        }
     }
 }
