@@ -28,6 +28,7 @@
 		05A9EE3028F0AB0F0084B452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A9EE2F28F0AB0F0084B452 /* Assets.xcassets */; };
 		05A9EE3328F0AB0F0084B452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A9EE3128F0AB0F0084B452 /* LaunchScreen.storyboard */; };
 		05F71E1A294E0CFD008DE0EE /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F71E19294E0CFD008DE0EE /* GFEmptyStateView.swift */; };
+		05F71E1C294E41B3008DE0EE /* FollowerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F71E1B294E41B3008DE0EE /* FollowerInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		05A9EE3228F0AB0F0084B452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05A9EE3428F0AB0F0084B452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05F71E19294E0CFD008DE0EE /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		05F71E1B294E41B3008DE0EE /* FollowerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				053B80CB28F1E66100C49A9C /* FavoritesViewController.swift */,
 				055DA2DC28F5558E0028BADC /* FollowerListViewController.swift */,
 				053B80C928F1E64900C49A9C /* SearchViewController.swift */,
+				05F71E1B294E41B3008DE0EE /* FollowerInfoViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				055DA2E128F924EB0028BADC /* GFBodyLabel.swift in Sources */,
 				05874D3D2900782C002BD607 /* Follower.swift in Sources */,
 				0569267E290D866F00DC10D0 /* FollowerCell.swift in Sources */,
+				05F71E1C294E41B3008DE0EE /* FollowerInfoViewController.swift in Sources */,
 				055DA2DF28F55F3F0028BADC /* GFTitleLabel.swift in Sources */,
 				05A9EE2728F0AB0D0084B452 /* AppDelegate.swift in Sources */,
 				053B80CC28F1E66100C49A9C /* FavoritesViewController.swift in Sources */,
