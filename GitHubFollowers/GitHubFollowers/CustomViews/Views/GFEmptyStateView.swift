@@ -48,7 +48,7 @@ final class GFEmptyStateView: UIView {
             titleLabel.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: -80),
             
             imageView.heightAnchor.constraint(equalToConstant: 500),
-            imageView.widthAnchor.constraint(equalToConstant: 300),
+            imageView.widthAnchor.constraint(equalToConstant: 400),
             imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.centerXAnchor)
         ])

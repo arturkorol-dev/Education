@@ -20,6 +20,7 @@ class FollowerListViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     var page: Int = 1
     var hasMoreFollowers: Bool = true
     
@@ -38,6 +39,7 @@ class FollowerListViewController: UIViewController {
         getFollowers(for: userName, page: page)
         configureCollectionView()
         configureDataSource()
+        configureSearchController()
     }
     
     /// Set default values to the view.
@@ -67,12 +69,23 @@ class FollowerListViewController: UIViewController {
                         self.showEmptyStateView(with: massage, in: self.view)
                     }
                 }
-                self.updateData()
+                self.updateData(on: self.followers)
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Opps", message: error.rawValue, buttonTitle: "Ok")
             }
             self.requestDidEnd()
         }
+    }
+    
+    ///Configure search bar.
+    ///
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a user"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
     }
     
     /// Configure collection view.
@@ -100,10 +113,10 @@ class FollowerListViewController: UIViewController {
     }
     
     /// Update data for CollectionView.
-    private func updateData() {
+    private func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(self.followers)
+        snapshot.appendItems(followers)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
 }
@@ -120,4 +133,17 @@ extension FollowerListViewController: UICollectionViewDelegate {
             self.getFollowers(for: userName, page: page)
         }
     }
+}
+
+extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+        updateData(on: filteredFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: followers)
+    }
+    
 }
