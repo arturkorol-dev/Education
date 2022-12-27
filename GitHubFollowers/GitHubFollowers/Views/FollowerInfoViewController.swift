@@ -9,9 +9,21 @@ import UIKit
 
 class FollowerInfoViewController: UIViewController {
 
+    //MARK: - Enum
+    
+    enum Layout {
+        static let viewTopPadding: CGFloat = 20
+        static let viewLeftPadding: CGFloat = 20
+        static let viewRightPadding: CGFloat = -20
+        static let headerViewHeight: CGFloat = 180
+        static let itemViewHeight: CGFloat = 140
+    }
+    
     //MARK: - View
     
     private let _headerView = UIView()
+    private let _firstInfoView = UIView()
+    private let _secondInfoView = UIView()
     
     //MARK: - Properties
     
@@ -29,13 +41,26 @@ class FollowerInfoViewController: UIViewController {
     /// Layout for current View Controller.
     ///
     private func _layout() {
-        view.addSubview(_headerView)
+        let viewArray = [_headerView, _firstInfoView, _secondInfoView]
+        
+        for itemView in viewArray {
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.viewLeftPadding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Layout.viewRightPadding)
+            ])
+        }
         
         NSLayoutConstraint.activate([
             _headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            _headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            _headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            _headerView.heightAnchor.constraint(equalToConstant: 180)
+            _headerView.heightAnchor.constraint(equalToConstant: Layout.headerViewHeight),
+            
+            _firstInfoView.topAnchor.constraint(equalTo: _headerView.bottomAnchor, constant: Layout.viewTopPadding),
+            _firstInfoView.heightAnchor.constraint(equalToConstant: Layout.itemViewHeight),
+            
+            _secondInfoView.topAnchor.constraint(equalTo: _firstInfoView.bottomAnchor, constant: Layout.viewTopPadding),
+            _secondInfoView.heightAnchor.constraint(equalToConstant: Layout.itemViewHeight),
         ])
     }
 
@@ -43,7 +68,8 @@ class FollowerInfoViewController: UIViewController {
     /// Configure all methods on View Controller.
     ///
     private func _configure() {
-        _headerView.translatesAutoresizingMaskIntoConstraints = false
+        _firstInfoView.backgroundColor = .systemPink
+        _secondInfoView.backgroundColor = .systemBlue
         _makeRequest()
         _setupViewController()
     }
